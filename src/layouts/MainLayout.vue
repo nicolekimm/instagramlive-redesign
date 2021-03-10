@@ -17,13 +17,13 @@
               name="search"
               icon="eva-search-outline"
             />
+            <q-tab
+              name="igtv"
+              icon="play_circle_outline"
+            />
             <q-route-tab
               to="/live"
               name="live"
-              icon="play_circle_outline"
-            />
-            <q-tab
-              name="tv"
               icon="tv"
             />
             <q-route-tab
