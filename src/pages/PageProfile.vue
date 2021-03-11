@@ -80,12 +80,15 @@
 
 <script>
 import ProfileHeader from '../components/ProfileHeader.vue';
+import ScheduleTab from '../components/ScheduleTab.vue';
 export default {
   name: 'PageProfile',
   components: {
-    ProfileHeader
+    ProfileHeader,
+    ScheduleTab
   },
   data () {
+    showScheduleTab: false
     return {
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
