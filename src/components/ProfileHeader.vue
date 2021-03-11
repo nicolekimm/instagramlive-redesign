@@ -14,6 +14,8 @@
                 <q-tab
                   name="plus"
                   icon="eva-plus-outline"
+                  @click="open('bottom')"
+                  color="primary"
                 />
                 <q-tab
                   name="menu"
@@ -22,6 +24,7 @@
             </q-tabs>
         </q-toolbar>
     </q-header>
+    
 </template>
 
 <script>
@@ -30,8 +33,22 @@ export default {
   name: 'ProfileHeader',
   data () {
     return {
+      dialog: false,
+      position: 'top'
+    }
+  },
+
+  methods: {
+    open (position) {
+      this.position = position
+      this.dialog = true
     }
   }
+
+  // data () {
+  //   return {
+  //   }
+  // }
 }
 </script>
 

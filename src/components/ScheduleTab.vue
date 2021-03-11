@@ -1,28 +1,25 @@
 <template>
-    <q-header
-        class="bg-white text-grey-10"
-        bordered
-    >
-        <q-toolbar>
-            <q-toolbar-title>
-            janedoe
-            </q-toolbar-title>
-            <q-tabs
-              class="text-grey-10"
-              indicator-color="transparent"
-            >
-                <q-tab
-                  name="plus"
-                  icon="eva-plus-outline"
-                />
-                <q-tab
-                  name="menu"
-                  icon="eva-menu-outline"
-                />
-            </q-tabs>
-        </q-toolbar>
-    </q-header>
+    <div>
+    
+    <q-dialog v-model="dialog" :position="position">
+      <q-card style="width: 350px">
+
+        <q-card-section class="row items-center no-wrap">
+          <div>
+            <div class="text-weight-bold">Schedule</div>
+            <div class="text-grey">Options</div>
+          </div>
+
+          <q-space></q-space>
+
+  
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+  </div>
 </template>
+
+
 
 <script>
 
@@ -34,6 +31,18 @@ export default {
   }
 }
 </script>
+
+<script>
+
+// export default {
+//   name: 'ScheduleTab',
+//   methods: {
+//     showScheduleTab () {
+//       this.$q.notify('Some other message')
+//     }
+//   }
+// }
+// </script>
 
 <style lang="sass">
     .q-header
