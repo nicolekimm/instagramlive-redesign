@@ -1,22 +1,21 @@
 <template>
-    <div>
-    
-    <q-dialog v-model="dialog" :position="position">
-      <q-card style="width: 350px">
+      <q-card style="width: 100%">
 
-        <q-card-section class="row items-center no-wrap">
-          <div>
-            <div class="text-weight-bold">Schedule</div>
-            <div class="text-grey">Options</div>
-          </div>
+        <q-card-section class="row items-center">
+        
+            
+            <div class="text-weight-bold">Schedule a Live</div>
+            <div class="text-grey">Title</div>
+            <div class="text-grey">Date</div>
+            <div class="text-grey">Category</div>
 
-          <q-space></q-space>
-
-  
+          
+          
         </q-card-section>
       </q-card>
-    </q-dialog>
-  </div>
+         
+
+          
 </template>
 
 
@@ -34,19 +33,9 @@ export default {
 
 <script>
 
-// export default {
-//   name: 'ScheduleTab',
-//   methods: {
-//     showScheduleTab () {
-//       this.$q.notify('Some other message')
-//     }
-//   }
-// }
-// </script>
-
-<style lang="sass">
-    .q-header
-      .q-toolbar__title
-        font-size: 25px
-        font-weight: bold
-</style>
+// <style lang="sass">
+//     // .q-header
+//     //   .q-toolbar__title
+//         // font-size: 25px
+//         // font-weight: bold
+// </style>

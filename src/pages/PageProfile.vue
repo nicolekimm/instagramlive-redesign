@@ -1,7 +1,32 @@
 <template>
   <q-page class="constrain q-pa-md">
       <div>
-        <profile-header></profile-header>
+        <!-- <profile-header></profile-header> -->
+        <q-header
+        class="bg-white text-grey-10"
+        bordered
+    >
+        <q-toolbar>
+            <q-toolbar-title>
+            janedoe
+            </q-toolbar-title>
+            <q-tabs
+              class="text-grey-10"
+              indicator-color="transparent"
+            >
+                <q-tab
+                  name="plus"
+                  icon="eva-plus-outline"
+                  @click="open('bottom')"
+                  color="primary"
+                />
+                <q-tab
+                  name="menu"
+                  icon="eva-menu-outline"
+                />
+            </q-tabs>
+        </q-toolbar>
+    </q-header>
       </div>
       <div class="row">
           <q-item> 
@@ -72,29 +97,47 @@
           :src= "url2"
           style="height: 140px; max-width: 110px"
         />
+      <div>
+      <q-dialog v-model="dialog" :position="position">
+      <!-- <q-card style="width: 100%">
 
-
+        <q-card-section class="row items-center no-wrap">
+          <div>
+           <schedule-tab></schedule-tab>
+          </div>
+        </q-card-section>
+      </q-card> -->
+      <schedule-tab></schedule-tab>
+    </q-dialog>
+      </div>
 
   </q-page>
 </template>
 
 <script>
-import ProfileHeader from '../components/ProfileHeader.vue';
+// import ProfileHeader from '../components/ProfileHeader.vue';
 import ScheduleTab from '../components/ScheduleTab.vue';
 export default {
   name: 'PageProfile',
   components: {
-    ProfileHeader,
+    // ProfileHeader,
     ScheduleTab
   },
   data () {
     showScheduleTab: false
     return {
+      dialog: false,
+      position: 'bottom',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
     }
   },
   methods: {
+    // for scheduling tab
+    open (position) {
+      this.position = position
+      this.dialog = true
+    },
     showFeed () {
       this.url = 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80'
       this.url2 = 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'

@@ -1,4 +1,5 @@
 <template>
+
     <q-header
         class="bg-white text-grey-10"
         bordered
@@ -14,7 +15,7 @@
                 <q-tab
                   name="plus"
                   icon="eva-plus-outline"
-                  @click="open('bottom')"
+                  @click="positioned"
                   color="primary"
                 />
                 <q-tab
@@ -24,31 +25,26 @@
             </q-tabs>
         </q-toolbar>
     </q-header>
-    
 </template>
 
 <script>
 
+import ScheduleTab from '../components/ScheduleTab.vue';
 export default {
+  
   name: 'ProfileHeader',
-  data () {
-    return {
-      dialog: false,
-      position: 'top'
-    }
-  },
 
   methods: {
-    open (position) {
-      this.position = position
-      this.dialog = true
-    }
+
+    positioned () {
+      this.$q.dialog({
+        title: 'Positioned',
+        message: 'This dialog appears from bottom.',
+        position: 'bottom'
+      })
+    },
   }
 
-  // data () {
-  //   return {
-  //   }
-  // }
 }
 </script>
 
