@@ -189,6 +189,7 @@
 export default {
   name: 'PageProfile',
   data () {
+    showScheduleTab: false
     return {
       showImage1: true,
       showImage2: false,
