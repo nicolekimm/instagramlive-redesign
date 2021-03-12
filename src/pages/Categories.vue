@@ -1,10 +1,10 @@
 <template>
-  <q-page class="constrain q-pa-md">
+  <q-page class="constrain q-pa-sm">
       <div>
         <categories-header></categories-header>
       </div>
         <q-item> 
-          <div class="q-pa-md" style="width: 110%; border-radius:50%">
+          <div class="q-pa-sm" style="width: 110%; border-radius:50%">
           <div class="q-gutter-md" style="border-radius:50%">
               <q-input
                 v-model="search"
@@ -23,11 +23,11 @@
         <q-item-label class="name q-ml-lg">Volleyball</q-item-label>
       </q-item-section>
 
-      <div class="q-pa-lg" style="display:flex;">
-          <q-btn align="around" class="full-width"  label="Basketball" outline color="black" no-caps unelevated/>
-          <q-btn align="around" class="full-width"  label="Volleyball" color="grey" no-caps unelevated />
-          <q-btn align="around" class="full-width"  label="Swimming" outline color="black" no-caps unelevated/>
-          <q-btn align="around" class="full-width"  label="Skiing" outline color="black" no-caps unelevated/>
+      <div class="q-pa-md" style="display:flex;">
+          <q-btn align="around" size="md" class="full-width"  label="Basketball" outline color="black" no-caps unelevated/>
+          <q-btn align="around" size="md" class="full-width"  label="Volleyball" color="grey" no-caps unelevated />
+          <q-btn align="around" size="md" class="full-width"  label="Swimming" outline color="black" no-caps unelevated/>
+          <q-btn align="around" size="md" class="full-width"  label="Skiing" outline color="black" no-caps unelevated/>
       </div>
 
       <q-tabs
@@ -45,7 +45,8 @@
               @click="showFeed"
             />
         </q-tabs>
-
+        <q-item>
+          <div class="q-pa-md" style="width: 100%">
         <q-img
           class = "image1"
           src="../images/volleyball4.jpg"
@@ -117,7 +118,8 @@
           src="../images/volleyball2.jpg"
           style="height: 140px; max-width: 110px"
         />
-
+      </div>
+    </q-item>
   </q-page>
 </template>
 
