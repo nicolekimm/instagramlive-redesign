@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
 
     <q-header
@@ -54,3 +55,5 @@ export default {
         font-size: 25px
         font-weight: bold
 </style>
+=======
+>>>>>>> 2282f5b3f60b42312ae83798603ca10846cc08be

@@ -18,13 +18,13 @@
               icon="eva-search-outline"
             />
             <q-tab
-              name="igtv"
+              name="reel"
               icon="play_circle_outline"
             />
             <q-route-tab
               to="/live"
               name="live"
-              icon="tv"
+              icon="live_tv"
             />
             <q-route-tab
               to="/"
