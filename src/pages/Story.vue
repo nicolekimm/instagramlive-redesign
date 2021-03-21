@@ -45,7 +45,7 @@
             <canvas
                 v-show="videoCaptured"
                 ref="canvas"
-                class="full-width q-mt-xl"
+                class="video full-width"
             />
         </div>   
         <div class="text-center q-pa-md">
