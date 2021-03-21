@@ -1,10 +1,15 @@
 <template>
     <q-page class="constrain q-pa-md"> 
         <div class="camera-frame q-pa-md">
+            <div class="text-right">
+                <q-btn flat round icon="eva-close-circle-outline" size="lg" to="/" />
+            </div>
             <video
                 v-show="!videoCaptured"
                 ref= "video"
                 class="full-width"
+                width="350px"
+                height="450px"
                 autoplay
                 playsinline
             />
@@ -20,7 +25,7 @@
                 @click="captureVideo"
                 round
                 color="grey-10"
-                icon="eva-play-circle" 
+                icon="eva-camera" 
                 size="lg"
             />
         </div>
