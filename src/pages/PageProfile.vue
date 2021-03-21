@@ -138,7 +138,7 @@
           <q-separator />
           <q-card-actions>
             <q-btn flat round icon="restore" />
-            <q-btn flat no-caps style="font-size: 17px">
+            <q-btn flat no-caps style="font-size: 17px" to="/story">
               Story
             </q-btn>
           </q-card-actions>
