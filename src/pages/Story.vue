@@ -1,23 +1,51 @@
 <template>
     <q-page class="constrain q-pa-md"> 
         <div class="camera-frame q-pa-md">
-            <div class="text-right">
+            <div class="row justify-between">
+                <q-btn flat round icon="eva-settings-outline" size="lg"/>
                 <q-btn flat round icon="eva-close-circle-outline" size="lg" to="/" />
+            </div>
+            <div class="img text-center">
+                <q-avatar
+                    size="50px"
+                >
+                    <q-img
+                        src= "../images/profile1.jpeg"
+                    >
+                    </q-img>
+                </q-avatar>
+                <q-avatar
+                    size="50px"
+                >
+                    <q-img
+                        src= "../images/profile2.jpeg"
+                    >
+                    </q-img>
+                </q-avatar>
+                <q-avatar
+                    size="50px"
+                >
+                    <q-img
+                        src= "../images/profile6.jpeg"
+                    >
+                    </q-img>
+                </q-avatar>
+
+            </div>
+            <div class="text text-center">
+                20 followers are active now
             </div>
             <video
                 v-show="!videoCaptured"
                 ref= "video"
-                class="full-width"
-                width="350px"
-                height="450px"
+                class="video full-width"
                 autoplay
                 playsinline
             />
             <canvas
                 v-show="videoCaptured"
                 ref="canvas"
-                class="full-width"
-                height="240"
+                class="full-width q-mt-xl"
             />
         </div>   
         <div class="text-center q-pa-md">
@@ -70,4 +98,10 @@ export default {
     .camera-frame   
         border: 2px solid $grey-10
         border-radius: 10px
+    .text 
+        font-size: 17px
+        margin-top: 20px
+    .video 
+        margin-top: 100px
+        margin-bottom: 20px
 </style>
