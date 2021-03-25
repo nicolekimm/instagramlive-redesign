@@ -3,7 +3,7 @@
         <div class="camera-frame q-pa-md">
             <div class="row justify-between">
                 <q-btn flat round icon="eva-settings-outline" size="lg"/>
-                <q-btn flat round icon="eva-close-circle-outline" size="lg" to="/" />
+                <q-btn flat round icon="eva-close-circle-outline" size="lg" to="/" @click="turnOffCamera" />
             </div>
             <div class="img text-center">
                 <q-avatar
@@ -87,6 +87,11 @@ export default {
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
             this.videoCaptured = true;
         },
+        turnOffCamera() {
+            let mediaStream = this.$refs.video.srcObject;
+            let tracks = mediaStream.getTracks();
+            tracks.forEach(track=>track.stop());
+        }
     },
     mounted() {
         this.initCamera();
