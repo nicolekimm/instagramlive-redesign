@@ -22,8 +22,9 @@
         <q-item-label class="name q-ml-lg">{{header}}</q-item-label>
       </q-item-section>
       <div class="my-buttons">
-        <div v-for="(item, key) in categoriesList.slice(1)" :key="key" class="button-style">
-            <q-btn align="around" size="md" class="full-width" @click="$router.replace('/live/categories/' + item.name)" outline color="black" no-caps unelevated>
+        <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
+            <q-btn outline align="around" size="md" class="full-width" @click="$router.replace('/live/categories/' + item.name)"
+            :color="headerKey===key ? 'secondary' : 'black'" no-caps unelevated>
               {{ item.name }} 
             </q-btn>
           </div>
@@ -70,7 +71,7 @@ export default {
       url3: '../images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
       categoriesList : [
-        { id : 0, name : "Recommended", photos : ['https://images.unsplash.com/photo-1612392061787-2d078b3e573c?ixid=MXwxMjA3fDF8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        { id : 0, name : "All", photos : ['https://images.unsplash.com/photo-1612392061787-2d078b3e573c?ixid=MXwxMjA3fDF8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1546214755-c5d22447b43b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8c2FpbGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1500627964684-141351970a7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2734&q=80',

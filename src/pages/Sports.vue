@@ -25,7 +25,8 @@
       </q-item-section>
       <div class="my-buttons">
             <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
-                <q-btn align="around" size="md" class="full-width" @click="go(item, key)" outline color="black" no-caps unelevated>
+                <q-btn outline align="around" size="md" class="full-width" 
+                @click="go(item, key)" :color="headerKey===key ? 'secondary' : 'black' " no-caps unelevated>
                 {{ item.name }}
                 </q-btn>
             </div>
@@ -134,14 +135,10 @@ export default {
     },
     go(item, key){
       this.searchOn = false;
-      this.changeMe(item)
+      // this.changeMe(item)
       this.header = item.name
       this.headerKey = key
       console.log(item.name)
-      console.log(key)
-    },
-    changeMe(item){
-      this.btnColor = 'secondary'
     },
     created(){
 
