@@ -43,7 +43,7 @@
           <div class="q-gutter-md" style="border-radius:50%">
         
         <q-img
-            class = "image1"
+            class = "image"
             src="../images/recc.png"
             style="height: 140px; width: 365px"
             @click="$router.replace('/live/categories')"
@@ -53,12 +53,12 @@
             </div>
           </q-img>
         <q-img
-          class = "image1"
-          src="../images/volleyball3.jpg"
+          class = "image"
+          src="https://images.unsplash.com/photo-1560055932-595dab110124?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8YnJ1bmNofGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/food')"
           >
-        <div class="absolute-full text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle1 flex flex-center">
             Food
           </div>
         </q-img>
@@ -66,11 +66,11 @@
 
         <q-img
           class = "image1"
-          src="../images/volleyball1.jpg"
+          src="https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/travel')"
         >
-        <div class="absolute-full text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle2 flex flex-center">
           Travel
           </div>
         </q-img>
@@ -81,7 +81,7 @@
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/sports')"
           >
-        <div class="absolute-full text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle2 flex flex-center">
             Sports
           </div>
         </q-img>
@@ -137,4 +137,9 @@ export default {
         height:40px
     .q-field__marginal
         height:42px
+    .image1:hover
+      background-color:blue
+      opacity: 1
+      transition: .3s
+
 </style>
