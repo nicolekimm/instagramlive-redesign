@@ -8,11 +8,13 @@
           <div class="q-gutter-md" style="border-radius:50%">
               <q-input
                 v-model="search"
+                ref="input"
+                type="search"
                 debounce="500"
                 filled
                 placeholder="Search">
                 <template v-slot:append style="border-radius:30px">
-                  <q-icon name="search"></q-icon>
+                  <q-icon name="search"  @click="doSearch"></q-icon>
                 </template>
               </q-input>
             </div>
@@ -22,12 +24,13 @@
         <q-item-label class="name q-ml-lg">{{header}}</q-item-label>
       </q-item-section>
       <div class="my-buttons">
-        <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
-            <q-btn align="around" size="md" class="full-width" @click="go(item, key)" outline color="black" no-caps unelevated>
-              {{ item.name }}
-            </q-btn>
-          </div>
-        </div>
+            <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
+                <q-btn align="around" size="md" class="full-width" @click="go(item, key)" outline color="black" no-caps unelevated>
+                {{ item.name }}
+                </q-btn>
+            </div>
+      </div>
+        
             <q-tabs
                 class="text-grey-10"
                 active-color="black">
@@ -40,15 +43,24 @@
                     icon="tv"
                     @click="showFeed"/>
               </q-tabs>
-              <div class="main-content" :value="headerKey">
+            <div v-if="!searchOn" class="main-content" :value="headerKey">
                 <div :v-bind="headerKey" v-for="(item, idx) in categoriesList[headerKey].photos" :key="idx" class="blocks" style=" width: 100%">
                   <q-img
                     class = "image1"
                     :src='item'
                     style="height: 140px; flex: 1"
                   />
+                </div>
             </div>
-          </div>
+            <div v-else class="main-content" :value="headerKey">
+                <div :v-bind="headerKey" v-for="(item, idx) in photos" :key="idx" class="blocks" style=" width: 100%">
+                  <q-img
+                    class = "image1"
+                    :src='item'
+                    style="height: 140px; flex: 1"
+                  />
+                </div>
+            </div>
   </q-page>
 </template>
 
@@ -63,14 +75,18 @@ export default {
   },
   data () {
     return {
+      searchOn: false,
+      search: "",
       header : 'Sports',
       btnColor: 'black',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '../images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
+      searchList : [],
+      photos: [],
       categoriesList : [
-        { id : 1, name : "Sailing", photos :  
+        { id : 1, name : "Sailing", searchTerms: ['water', 'sailing', 'ocean'], photos :  
         ['https://images.unsplash.com/photo-1546214755-c5d22447b43b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8c2FpbGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1500627964684-141351970a7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2734&q=80',
         'https://images.unsplash.com/photo-1498994292978-4d6ff757c6dc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
@@ -80,19 +96,18 @@ export default {
         'https://images.unsplash.com/photo-1594050269245-6342c831b492?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1614521741633-67e77b01f011?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDB8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1534181220741-388dc50c711d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDl8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60']},
-        { id : 2, name : "Volleyball", photos : ['https://images.unsplash.com/photo-1593115379577-a21ea97d6645?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8dm9sbGV5YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        { id : 2, name : "Volleyball", searchTerms: ['volleyball', 'land', 'ball'], photos : ['https://images.unsplash.com/photo-1593115379577-a21ea97d6645?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8dm9sbGV5YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
           'https://images.unsplash.com/photo-1553451310-1416336a3cca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHZvbGxleWJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         ] },
-        { id : 3, name : "Basketball" , photos : [ 'https://images.unsplash.com/photo-1527702544404-98b15682485f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjB8fHZvbGxleWJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        { id : 3, name : "Basketball" , searchTerms: ['basketball', 'land', 'ball'], photos : [ 'https://images.unsplash.com/photo-1527702544404-98b15682485f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjB8fHZvbGxleWJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         ] },
-        { id : 4, name : "Swimming", photos : [
+        { id : 4, name : "Swimming", searchTerms: ['water', 'ocean', 'swimming'], photos : [
           'https://images.unsplash.com/photo-1596247865408-cb5107b24afc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fHN3aW1taW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1580253046571-be2ed96a7c0e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fHN3aW1taW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         ] }
       ],
       headerKey: 0,
-      search: '',
       myJson: json
     }
   },
@@ -110,19 +125,32 @@ export default {
       this.url2 = 'https://images.unsplash.com/photo-1504150558240-0b4fd8946624?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
     },
     go(item, key){
+      this.searchOn = false;
       this.changeMe(item)
       this.header = item.name
       this.headerKey = key
       console.log(item.name)
       console.log(key)
-      console.log("got here!")
     },
     changeMe(item){
       this.btnColor = 'secondary'
     },
     created(){
 
-    }
+    }, 
+    doSearch() {
+        this.searchOn = true;
+        this.searchList = this.categoriesList.filter(item => item.searchTerms.includes(this.search.toLowerCase()));
+        console.log(this.searchList);
+        let i = 0;
+        let j = 0;
+        this.photos = [];
+        for (i=0; i< this.searchList.length; i++) {
+            for (j=0; j < this.searchList[i].photos.length; j++) {
+                this.photos.push(this.searchList[i].photos[j]);
+            }
+        }
+    },
     // getCategories(){
     //   fetch('/categories.json')
     //     .then(json => {
