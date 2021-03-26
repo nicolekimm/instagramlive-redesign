@@ -87,7 +87,7 @@ export default {
       searchList : [],
       photos: [],
       categoriesList : [
-        { id : 0, name : "All", searchTerms: ['water', 'sailing', 'ocean'], photos : ['https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        { id : 0, name : "All", searchTerms: [], photos : ['https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1498994292978-4d6ff757c6dc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1553451310-1416336a3cca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHZvbGxleWJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1594050269245-6342c831b492?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
@@ -146,7 +146,6 @@ export default {
     doSearch() {
         this.searchOn = true;
         this.searchList = this.categoriesList.filter(item => item.searchTerms.includes(this.search.toLowerCase()));
-        console.log(this.searchList);
         let i = 0;
         let j = 0;
         this.photos = [];
@@ -156,24 +155,7 @@ export default {
             }
         }
     },
-    // getCategories(){
-    //   fetch('/categories.json')
-    //     .then(json => {
-    //       console.log(json)
-    //       this.db = json
-    //     })
-
-        // .then((response) => { 
-        //   console.log(response.json())
-        //   this.data = response.data
-        // })
-        // .catch((err) => {
-        //   console.log(err)
-        // })
     }
-  // mounted(){
-  //   this.getCategories();
-  // }
 }
 </script>
 
