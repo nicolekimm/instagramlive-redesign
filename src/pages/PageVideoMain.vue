@@ -1,6 +1,25 @@
 <template>
   <q-page class="constrain q-pa-sm">
-      <live-header></live-header>
+      <q-header
+        class="bg-white text-grey-10"
+        bordered>
+        <q-toolbar>
+            <q-toolbar-title>
+            Live Videos
+            </q-toolbar-title>
+            <div>
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px">
+                add_circle
+              </span>
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px" >
+                event
+              </span>
+              <span class="material-icons md-48" style="font-size: 30px; padding:2px">
+                menu
+              </span>
+            </div>
+        </q-toolbar>
+    </q-header>
         <q-item> 
           <div class="q-pa-sm" style="width: 110%; border-radius:50%">
           <div class="q-gutter-md" style="border-radius:50%">

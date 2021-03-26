@@ -1,35 +1,5 @@
 <template>
   <q-page class="constrain q-pa-md">
-<<<<<<< HEAD
-      <div>
-        <!-- <profile-header></profile-header> -->
-        <q-header
-        class="bg-white text-grey-10"
-        bordered
-    >
-        <q-toolbar>
-            <q-toolbar-title>
-            janedoe
-            </q-toolbar-title>
-            <q-tabs
-              class="text-grey-10"
-              indicator-color="transparent"
-            >
-                <q-tab
-                  name="plus"
-                  icon="eva-plus-outline"
-                  @click="open('bottom')"
-                  color="primary"
-                />
-                <q-tab
-                  name="menu"
-                  icon="eva-menu-outline"
-                />
-            </q-tabs>
-        </q-toolbar>
-    </q-header>
-      </div>
-=======
       <q-header
           class="bg-white text-grey-10"
           bordered
@@ -54,7 +24,6 @@
               </q-tabs>
           </q-toolbar>
       </q-header>
->>>>>>> 2282f5b3f60b42312ae83798603ca10846cc08be
       <div class="row">
           <q-item> 
 
@@ -133,21 +102,7 @@
           src= "../images/profile3.jpeg"
           style="height: 150px; max-width: 120px"
         />
-      <div>
-      <q-dialog v-model="dialog" :position="position">
-      <!-- <q-card style="width: 100%">
 
-<<<<<<< HEAD
-        <q-card-section class="row items-center no-wrap">
-          <div>
-           <schedule-tab></schedule-tab>
-          </div>
-        </q-card-section>
-      </q-card> -->
-      <schedule-tab></schedule-tab>
-    </q-dialog>
-      </div>
-=======
         <q-img
           class = "image4"
           v-if="showImage2"
@@ -226,29 +181,11 @@
         </q-card>
 
 
->>>>>>> 2282f5b3f60b42312ae83798603ca10846cc08be
 
   </q-page>
 </template>
 
 <script>
-<<<<<<< HEAD
-// import ProfileHeader from '../components/ProfileHeader.vue';
-import ScheduleTab from '../components/ScheduleTab.vue';
-export default {
-  name: 'PageProfile',
-  components: {
-    // ProfileHeader,
-    ScheduleTab
-  },
-  data () {
-    showScheduleTab: false
-    return {
-      dialog: false,
-      position: 'bottom',
-      url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
-      url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
-=======
 export default {
   name: 'PageProfile',
   data () {
@@ -258,15 +195,9 @@ export default {
       showImage2: false,
       showImage3: false,
       createCard: false,
->>>>>>> 2282f5b3f60b42312ae83798603ca10846cc08be
     }
   },
   methods: {
-    // for scheduling tab
-    open (position) {
-      this.position = position
-      this.dialog = true
-    },
     showFeed () {
       this.showImage1 = true
       this.showImage2 = false
