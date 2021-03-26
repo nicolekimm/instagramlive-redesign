@@ -151,24 +151,7 @@ export default {
             }
         }
     },
-    // getCategories(){
-    //   fetch('/categories.json')
-    //     .then(json => {
-    //       console.log(json)
-    //       this.db = json
-    //     })
-
-        // .then((response) => { 
-        //   console.log(response.json())
-        //   this.data = response.data
-        // })
-        // .catch((err) => {
-        //   console.log(err)
-        // })
     }
-  // mounted(){
-  //   this.getCategories();
-  // }
 }
 </script>
 
