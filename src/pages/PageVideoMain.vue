@@ -44,16 +44,16 @@
         
         <q-img
             class = "image1"
-            src="../images/volleyball4.jpg"
+            src="../images/recc.png"
             style="height: 140px; width: 365px"
             @click="$router.replace('/live/categories')"
           >
-          <div class="absolute-full text-subtitle2 flex flex-center">
+          <div class="absolute-bottom text-subtitle1 flex flex-center">
               Recommended for you
             </div>
           </q-img>
         <q-img
-          class = "image2"
+          class = "image1"
           src="../images/volleyball3.jpg"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/food')"
@@ -65,7 +65,7 @@
 
 
         <q-img
-          class = "image3"
+          class = "image1"
           src="../images/volleyball1.jpg"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/travel')"
@@ -76,7 +76,7 @@
         </q-img>
 
         <q-img
-          class = "image4"
+          class = "image1"
           src="../images/volleyball2.jpg"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/sports')"
