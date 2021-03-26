@@ -43,45 +43,45 @@
           <div class="q-gutter-md" style="border-radius:50%">
         
         <q-img
-            class = "image1"
-            src="../images/volleyball4.jpg"
+            class = "image"
+            src="../images/recc.png"
             style="height: 140px; width: 365px"
             @click="$router.replace('/live/categories')"
           >
-          <div class="absolute-full text-subtitle2 flex flex-center">
+          <div class="absolute-bottom text-subtitle1 flex flex-center">
               Recommended for you
             </div>
           </q-img>
         <q-img
-          class = "image2"
-          src="../images/volleyball3.jpg"
+          class = "image"
+          src="https://images.unsplash.com/photo-1560055932-595dab110124?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8YnJ1bmNofGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/food')"
           >
-        <div class="absolute-full text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle1 flex flex-center">
             Food
           </div>
         </q-img>
 
 
         <q-img
-          class = "image3"
-          src="../images/volleyball1.jpg"
+          class = "image1"
+          src="https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/travel')"
         >
-        <div class="absolute-full text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle2 flex flex-center">
           Travel
           </div>
         </q-img>
 
         <q-img
-          class = "image4"
+          class = "image1"
           src="../images/volleyball2.jpg"
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/sports')"
           >
-        <div class="absolute-full text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle2 flex flex-center">
             Sports
           </div>
         </q-img>
@@ -93,7 +93,6 @@
 
 <script>
 import LiveHeader from 'src/components/LiveHeader.vue'
-
 export default {
   name: 'PageVideoMain',
   components: {
@@ -105,7 +104,6 @@ export default {
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '.././images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
-
       search: ''
     }
   },
@@ -137,7 +135,11 @@ export default {
       .q-field__control
         border-radius:50px
         height:40px
-
     .q-field__marginal
         height:42px
+    .image1:hover
+      background-color:blue
+      opacity: 1
+      transition: .3s
+
 </style>
