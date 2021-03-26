@@ -93,7 +93,6 @@
 
 <script>
 import LiveHeader from 'src/components/LiveHeader.vue'
-
 export default {
   name: 'PageVideoMain',
   components: {
@@ -105,7 +104,6 @@ export default {
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '.././images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
-
       search: ''
     }
   },
@@ -137,7 +135,6 @@ export default {
       .q-field__control
         border-radius:50px
         height:40px
-
     .q-field__marginal
         height:42px
 </style>
