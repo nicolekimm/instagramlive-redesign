@@ -23,7 +23,8 @@
       </q-item-section>
       <div class="my-buttons">
         <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
-            <q-btn align="around" size="md" class="full-width" @click="go(item, key)" outline color="black" no-caps unelevated>
+            <q-btn outline align="around" size="md" class="full-width" :color="headerKey===key ? 'secondary' : 'black'"
+            @click="go(item, key)" no-caps unelevated>
               {{ item.name }}
             </q-btn>
           </div>
