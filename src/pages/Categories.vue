@@ -23,7 +23,7 @@
       </q-item-section>
       <div class="my-buttons">
         <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
-            <q-btn align="around" size="md" class="full-width" outline color="black" @click="go(item, key)" no-caps unelevated>
+            <q-btn align="around" size="md" class="full-width" :color="btnColor" @click="go(item, key)" no-caps unelevated>
               {{ item.name }}
             </q-btn>
           </div>
@@ -64,6 +64,7 @@ export default {
   data () {
     return {
       header : 'sports',
+      btnColor: 'black',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '.././images/volleyball1.jpg',
@@ -109,11 +110,15 @@ export default {
       this.url2 = 'https://images.unsplash.com/photo-1504150558240-0b4fd8946624?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
     },
     go(item, key){
+      this.changeMe(item)
       this.header = item.name
       this.headerKey = key
       console.log(item.name)
       console.log(key)
       console.log("got here!")
+    },
+    changeMe(item){
+      this.btnColor[item.key] = 'secondary'
     },
     created(){
 
