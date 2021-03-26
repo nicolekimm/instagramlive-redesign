@@ -70,7 +70,7 @@
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/travel')"
         >
-        <div class="absolute-bottom text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle1 flex flex-center">
           Travel
           </div>
         </q-img>
@@ -81,7 +81,7 @@
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/sports')"
           >
-        <div class="absolute-bottom text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle1 flex flex-center">
             Sports
           </div>
         </q-img>
@@ -92,7 +92,7 @@
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/shopping')"
         >
-        <div class="absolute-bottom text-subtitle2 flex flex-center">
+        <div class="absolute-bottom text-subtitle1 flex flex-center">
           Shopping
           </div>
         </q-img>
