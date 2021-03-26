@@ -16,7 +16,7 @@
               <span class="material-icons md-48" style="font-size: 30px; padding:2px">
                 menu
               </span>
-            </div>
+            </div>omg 
         </q-toolbar>
     </q-header>
 </template>
