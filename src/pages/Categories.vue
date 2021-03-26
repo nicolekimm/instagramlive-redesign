@@ -138,7 +138,7 @@ export default {
       url3: '.././images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
 
-      search: ''
+      search: '',
     }
   },
   methods: {
