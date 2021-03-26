@@ -1,0 +1,12 @@
+
+{
+    "username": "livestreamer",
+    "firstname": "Ashley",
+    "lastName": "jackson",
+    "video": {
+        "1": "videos/BirdNoSound.mp4"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "7383627627" }
+    ]
+}
