@@ -66,7 +66,7 @@
 
         <q-img
           class = "image1"
-          src="https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+          src='https://images.unsplash.com/photo-1606207703250-3954855894cd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0aW9uYWwlMjBwYXJrcyUyMGd1aWRlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/travel')"
         >
@@ -83,6 +83,17 @@
           >
         <div class="absolute-bottom text-subtitle2 flex flex-center">
             Sports
+          </div>
+        </q-img>
+
+         <q-img
+          class = "image1"
+          src='https://images.unsplash.com/photo-1606207703250-3954855894cd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0aW9uYWwlMjBwYXJrcyUyMGd1aWRlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
+          style="height: 140px; width: 365px"
+          @click="$router.replace('/live/categories/shopping')"
+        >
+        <div class="absolute-bottom text-subtitle2 flex flex-center">
+          Shopping
           </div>
         </q-img>
 
