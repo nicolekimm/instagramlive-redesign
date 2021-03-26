@@ -88,7 +88,7 @@
 
          <q-img
           class = "image1"
-          src='https://images.unsplash.com/photo-1606207703250-3954855894cd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0aW9uYWwlMjBwYXJrcyUyMGd1aWRlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
+          src='../images/shopp.jpg'
           style="height: 140px; width: 365px"
           @click="$router.replace('/live/categories/shopping')"
         >
