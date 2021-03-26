@@ -124,12 +124,12 @@ export default {
       this.url2 = 'https://images.unsplash.com/photo-1504150558240-0b4fd8946624?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
     },
     go(item, key){
+      this.searchOn = false;
       this.changeMe(item)
       this.header = item.name
       this.headerKey = key
       console.log(item.name)
       console.log(key)
-      console.log("got here!")
     },
     changeMe(item){
       this.btnColor = 'secondary'
@@ -140,7 +140,6 @@ export default {
     doSearch() {
         this.searchOn = true;
         this.searchList = this.categoriesList.filter(item => item.searchTerms.includes(this.search.toLowerCase()));
-        console.log(this.searchList);
     },
     // getCategories(){
     //   fetch('/categories.json')
