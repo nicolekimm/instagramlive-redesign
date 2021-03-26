@@ -23,8 +23,8 @@
       </q-item-section>
       <div class="my-buttons">
         <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
-            <q-btn align="around" size="md" class="full-width" @click="$router.replace('/live/categories/' + item.name)" outline color="black" no-caps unelevated>
-              {{ item.name }} 
+            <q-btn align="around" size="md" class="full-width" @click="go(item, key)" outline color="black" no-caps unelevated>
+              {{ item.name }}
             </q-btn>
           </div>
         </div>
@@ -63,29 +63,26 @@ export default {
   },
   data () {
     return {
-      header : 'Recommended For You',
+      header : 'Travel',
       btnColor: 'black',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '../images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
       categoriesList : [
-        { id : 1, name : "Sports", photos :  
-        ['https://images.unsplash.com/photo-1546214755-c5d22447b43b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8c2FpbGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1500627964684-141351970a7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2734&q=80',
-        'https://images.unsplash.com/photo-1498994292978-4d6ff757c6dc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1498623116890-37e912163d5d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1526631011044-3fae1501ec7c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjZ8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1601611864765-5530bcc425c2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjR8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1594050269245-6342c831b492?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1614521741633-67e77b01f011?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDB8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1534181220741-388dc50c711d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDl8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60']},
-        { id : 2, name : "Food", photos : ['https://images.unsplash.com/photo-1593115379577-a21ea97d6645?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8dm9sbGV5YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-          'https://images.unsplash.com/photo-1553451310-1416336a3cca?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHZvbGxleWJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        { id : 1, name : "Food", photos :  
+        ['https://images.unsplash.com/photo-1560055932-595dab110124?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8YnJ1bmNofGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1516213335993-159eca2981af?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8YnJ1bmNofGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60']},
+        { id : 2, name : "Backpacking", photos : ['https://images.unsplash.com/photo-1531242450852-175ae27d351c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFja3BhY2tpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+          'https://images.unsplash.com/photo-1569705262909-884a1197c70c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8YmFja3BhY2tpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         ] },
-        { id : 3, name : "Travel" , photos : [ 'https://images.unsplash.com/photo-1527702544404-98b15682485f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjB8fHZvbGxleWJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
-        'https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        { id : 3, name : "Guides" , photos : [ 'https://images.unsplash.com/photo-1606207703250-3954855894cd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0aW9uYWwlMjBwYXJrcyUyMGd1aWRlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1606629693684-013d152e1395?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8bmF0aW9uYWwlMjBwYXJrcyUyMGd1aWRlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         ] },
+        { id : 4, name : "Parks", photos : [
+          'https://images.unsplash.com/photo-1614800458644-1f772baee53f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8bmF0aW9uYWwlMjBwYXJrc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        'https://images.unsplash.com/photo-1595126461793-4605a6479982?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bmF0aW9uYWwlMjBwYXJrc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+        ] }
       ],
       headerKey: 0,
       search: '',

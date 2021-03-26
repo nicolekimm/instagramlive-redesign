@@ -55,7 +55,9 @@
         <q-img
           class = "image2"
           src="../images/volleyball3.jpg"
-          style="height: 140px; width: 365px">
+          style="height: 140px; width: 365px"
+          @click="$router.replace('/live/categories/food')"
+          >
         <div class="absolute-full text-subtitle2 flex flex-center">
             Food
           </div>
@@ -66,6 +68,7 @@
           class = "image3"
           src="../images/volleyball1.jpg"
           style="height: 140px; width: 365px"
+          @click="$router.replace('/live/categories/travel')"
         >
         <div class="absolute-full text-subtitle2 flex flex-center">
           Travel
@@ -75,27 +78,11 @@
         <q-img
           class = "image4"
           src="../images/volleyball2.jpg"
-          style="height: 140px; width: 365px">
+          style="height: 140px; width: 365px"
+          @click="$router.replace('/live/categories/sports')"
+          >
         <div class="absolute-full text-subtitle2 flex flex-center">
             Sports
-          </div>
-        </q-img>
-
-        <q-img
-          class = "image1"
-          src="../images/volleyball4.jpg"
-          style="height: 140px; width: 365px">
-                  <div class="absolute-full text-subtitle2 flex flex-center">
-            New users
-          </div>
-        </q-img>
-
-        <q-img
-          class = "image2"
-          src="../images/volleyball3.jpg"
-          style="height: 140px; width: 365px">
-        <div class="absolute-full text-subtitle2 flex flex-center">
-            Recommended for you
           </div>
         </q-img>
 
