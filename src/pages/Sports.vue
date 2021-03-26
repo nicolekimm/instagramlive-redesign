@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div v-else class="main-content" :value="headerKey">
-                <div :v-bind="headerKey" v-for="(item, idx) in searchList[headerKey].photos" :key="idx" class="blocks" style=" width: 100%">
+                <div :v-bind="headerKey" v-for="(item, idx) in photos" :key="idx" class="blocks" style=" width: 100%">
                   <q-img
                     class = "image1"
                     :src='item'
@@ -84,8 +84,9 @@ export default {
       url3: '../images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
       searchList : [],
+      photos: [],
       categoriesList : [
-        { id : 1, name : "Sailing", searchTerms: ['sailing', 'ocean', 'water'], photos :  
+        { id : 1, name : "Sailing", searchTerms: ['water', 'sailing', 'ocean'], photos :  
         ['https://images.unsplash.com/photo-1546214755-c5d22447b43b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8c2FpbGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1500627964684-141351970a7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2734&q=80',
         'https://images.unsplash.com/photo-1498994292978-4d6ff757c6dc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhaWxpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
@@ -101,7 +102,7 @@ export default {
         { id : 3, name : "Basketball" , searchTerms: ['basketball', 'land', 'ball'], photos : [ 'https://images.unsplash.com/photo-1527702544404-98b15682485f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjB8fHZvbGxleWJhbGx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1515523110800-9415d13b84a8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         ] },
-        { id : 4, name : "Swimming", searchTerms: ['swimming', 'ocean', 'water'], photos : [
+        { id : 4, name : "Swimming", searchTerms: ['water', 'ocean', 'swimming'], photos : [
           'https://images.unsplash.com/photo-1596247865408-cb5107b24afc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fHN3aW1taW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         'https://images.unsplash.com/photo-1580253046571-be2ed96a7c0e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fHN3aW1taW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
         ] }
@@ -140,6 +141,15 @@ export default {
     doSearch() {
         this.searchOn = true;
         this.searchList = this.categoriesList.filter(item => item.searchTerms.includes(this.search.toLowerCase()));
+        console.log(this.searchList);
+        let i = 0;
+        let j = 0;
+        this.photos = [];
+        for (i=0; i< this.searchList.length; i++) {
+            for (j=0; j < this.searchList[i].photos.length; j++) {
+                this.photos.push(this.searchList[i].photos[j]);
+            }
+        }
     },
     // getCategories(){
     //   fetch('/categories.json')
