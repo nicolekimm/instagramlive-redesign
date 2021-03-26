@@ -23,7 +23,7 @@
       </q-item-section>
       <div class="my-buttons">
         <div v-for="(item, key) in categoriesList" :key="key" class="button-style">
-            <q-btn align="around" size="md" class="full-width" :color="btnColor" @click="go(item, key)" no-caps unelevated>
+            <q-btn align="around" size="md" class="full-width" @click="go(item, key)" outline color="black" no-caps unelevated>
               {{ item.name }}
             </q-btn>
           </div>
@@ -40,15 +40,15 @@
                     icon="tv"
                     @click="showFeed"/>
               </q-tabs>
-              <q-item class="main-content" :value="headerKey">
+              <div class="main-content" :value="headerKey">
                 <div :v-bind="headerKey" v-for="(item, idx) in categoriesList[headerKey].photos" :key="idx" class="blocks" style=" width: 100%">
                   <q-img
                     class = "image1"
                     :src='item'
-                    style="height: 140px; max-width: 110px; flex: 1"
+                    style="height: 140px; flex: 1"
                   />
             </div>
-          </q-item>
+          </div>
   </q-page>
 </template>
 
@@ -63,14 +63,14 @@ export default {
   },
   data () {
     return {
-      header : 'sports',
+      header : 'Sports',
       btnColor: 'black',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
-      url3: '.././images/volleyball1.jpg',
+      url3: '../images/volleyball1.jpg',
       url4: '.././images/volleyball2.jpg',
       categoriesList : [
-        { id : 1, name : "sailing", photos :  
+        { id : 1, name : "Sailing", photos :  
         ['https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
@@ -80,13 +80,13 @@ export default {
         'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80']},
-        { id : 2, name : "volleyball", photos : [ 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
+        { id : 2, name : "Volleyball", photos : ['https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
           'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         ] },
-        { id : 3, name : "basketball" , photos : [ 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
+        { id : 3, name : "Basketball" , photos : [ 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         ] },
-        { id : 4, name : "swimming", photos : [
+        { id : 4, name : "Swimming", photos : [
           'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
         ] }
@@ -118,7 +118,7 @@ export default {
       console.log("got here!")
     },
     changeMe(item){
-      this.btnColor[item.key] = 'secondary'
+      this.btnColor = 'secondary'
     },
     created(){
 
@@ -169,7 +169,9 @@ export default {
       flex-direction: wrap
     .main-content
       display: grid
-      grid-template-columns: auto auto auto
+      grid-template-columns: 30% 30% 30%
+      margin-left: 8px
+      margin-right: -34px
     .image1 
       flex: 1
     
