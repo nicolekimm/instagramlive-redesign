@@ -50,20 +50,25 @@
                   />
             </div>
           </div>
+          <schedule-tab></schedule-tab>
   </q-page>
 </template>
 
 <script>
+import ScheduleTab from '../components/ScheduleTab.vue'
 import CategoriesHeader from '../components/CategoriesHeader.vue'
 import json from '../data/categories.json'
 
 export default {
   name: 'Categories',
   components: {
-    CategoriesHeader
+    CategoriesHeader,
+    ScheduleTab
   },
   data () {
+   
     return {
+      createCard: false,
       header : 'Recommended For You',
       btnColor: 'black',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
@@ -104,6 +109,9 @@ export default {
     }
   },
   methods: {
+    showAddOptions() {
+      this.createCard = true
+    },
     showFeed () {
       this.url = 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80'
       this.url2 = 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'

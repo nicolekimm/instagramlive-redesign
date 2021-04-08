@@ -4,7 +4,7 @@
         bordered>
         <q-toolbar>
             <q-toolbar-title>
-            Instagram Live
+            Sports
             </q-toolbar-title>
             <div>
               <span class="material-icons md-48" style="font-size: 25px; padding:2px">

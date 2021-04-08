@@ -11,7 +11,7 @@
               <span class="material-icons md-48" style="font-size: 25px; padding:2px">
                 add_circle
               </span>
-              <span class="material-icons md-48" style="font-size: 25px; padding:2px" >
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showAddOptions">
                 event
               </span>
               <span class="material-icons md-48" style="font-size: 30px; padding:2px">
@@ -99,15 +99,18 @@
 
       </div>
     </q-item>
+    <schedule-tab></schedule-tab>
   </q-page>
 </template>
 
 <script>
 import LiveHeader from 'src/components/LiveHeader.vue'
+import ScheduleTab from 'src/components/ScheduleTab.vue'
 export default {
   name: 'PageVideoMain',
   components: {
-    LiveHeader
+    LiveHeader,
+    ScheduleTab
   },
   data () {
     return {
