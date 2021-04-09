@@ -65,7 +65,7 @@
             <div class="q-pa-md row justify-center">
                 <div style="width: 100%; max-width: 400px">
                 <q-chat-message
-                    name="Me"
+                    name="@janedoe"
                     avatar="../images/janedoe.jpg"
                     :text="['Hey!']"
                     stamp="7 minutes ago"
@@ -73,7 +73,7 @@
                     bg-color="amber-7"
                 />
                 <q-chat-message
-                    name="Nadia"
+                    name="@nadia"
                     avatar="https://cdn.quasar.dev/img/avatar5.jpg"
                     :text="[
                     'How are you?',
@@ -85,7 +85,7 @@
                     bg-color="primary"
                 />
                 <q-chat-message
-                    name="Me"
+                    name="@janedoe"
                     avatar="../images/janedoe.jpg"
                     :text="['Good!']"
                     stamp="3 minutes ago"
@@ -93,7 +93,7 @@
                     bg-color="amber-7"
                 />
                 <q-chat-message
-                    name="Nadia"
+                    name="@kate"
                     :text="['Yay! Sooooo whats up?']"
                     bg-color="primary"
                     text-color="white"
