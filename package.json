@@ -14,7 +14,9 @@
     "core-js": "^3.6.5",
     "material-design-icons": "^3.0.1",
     "md-gum-polyfill": "^1.0.0",
-    "quasar": "^1.0.0"
+    "quasar": "^1.0.0",
+    "vue-capture": "^0.1.7",
+    "vue-media-recorder": "^0.1.25"
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0"
