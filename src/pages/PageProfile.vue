@@ -138,7 +138,7 @@
           <q-separator />
           <q-card-actions>
             <q-btn flat round icon="restore" />
-            <q-btn flat no-caps style="font-size: 17px" to="/story">
+            <q-btn flat no-caps style="font-size: 17px">
               Story
             </q-btn>
           </q-card-actions>
@@ -166,7 +166,7 @@
           <q-separator />
           <q-card-actions>
             <q-btn flat round icon="live_tv" />
-            <q-btn flat no-caps style="font-size: 17px">
+            <q-btn flat no-caps style="font-size: 17px" to="/story">
               Live Video
             </q-btn>
           </q-card-actions>
