@@ -4,10 +4,10 @@
         bordered>
         <q-toolbar>
             <q-toolbar-title>
-            Sports
+            {{this.header}}
             </q-toolbar-title>
             <div>
-              <span class="material-icons md-48" style="font-size: 25px; padding:2px">
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px" >
                 add_circle
               </span>
               <span class="material-icons md-48" style="font-size: 25px; padding:2px" >
@@ -19,6 +19,7 @@
             </div>
         </q-toolbar>
     </q-header>
+    
 </template>
 
 <script>
@@ -27,6 +28,7 @@ export default {
   name: 'CategoriesHeader',
   data () {
     return {
+      header : 'Live Page'
     }
   }
 }
