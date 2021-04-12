@@ -1,8 +1,6 @@
 <template>
   <q-page class="constrain q-pa-sm">
-      <div>
         <categories-header></categories-header>
-      </div>
         <q-item> 
           <div class="q-pa-sm" style="width: 110%; border-radius:50%">
           <div class="q-gutter-md" style="border-radius:50%">

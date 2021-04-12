@@ -1,17 +1,18 @@
 <template>
   <q-page class="constrain q-pa-sm">
-      <q-header
+
+    <q-header
         class="bg-white text-grey-10"
         bordered>
         <q-toolbar>
             <q-toolbar-title>
-            Live Videos
+            {{this.header}}
             </q-toolbar-title>
             <div>
-              <span class="material-icons md-48" style="font-size: 25px; padding:2px">
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showAddOptions">
                 add_circle
               </span>
-              <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showAddOptions">
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px" >
                 event
               </span>
               <span class="material-icons md-48" style="font-size: 30px; padding:2px">
@@ -20,6 +21,7 @@
             </div>
         </q-toolbar>
     </q-header>
+
         <q-item> 
           <div class="q-pa-sm" style="width: 110%; border-radius:50%">
           <div class="q-gutter-md" style="border-radius:50%">
@@ -100,20 +102,79 @@
       </div>
     </q-item>
     <schedule-tab></schedule-tab>
+            <q-card class="my-card absolute-bottom" flat bordered ref="createCard" v-if="createCard">
+          <q-card-section>
+            <div class="text-h6" align="center" @click= "compressOptions">Create</div>
+          </q-card-section>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="eva-grid-outline" />
+            <q-btn flat no-caps style="font-size: 17px">
+              Post
+            </q-btn>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="restore" />
+            <q-btn flat no-caps style="font-size: 17px">
+              Story
+            </q-btn>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="stars" />
+            <q-btn flat no-caps style="font-size: 17px">
+              Story Highlight
+            </q-btn>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="tv" />
+            <q-btn flat no-caps style="font-size: 17px">
+              IGTV Video
+            </q-btn>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="play_circle_outline" />
+            <q-btn flat no-caps style="font-size: 17px">
+              Reel
+            </q-btn>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="live_tv" />
+            <q-btn flat no-caps style="font-size: 17px" to="/story">
+              Live Video
+            </q-btn>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="map" />
+            <q-btn flat no-caps style="font-size: 17px">
+              Guide
+            </q-btn>
+          </q-card-actions>
+
+        </q-card>
   </q-page>
 </template>
 
 <script>
 import LiveHeader from 'src/components/LiveHeader.vue'
 import ScheduleTab from 'src/components/ScheduleTab.vue'
+import CategoriesHeader from 'src/components/CategoriesHeader.vue'
 export default {
   name: 'PageVideoMain',
   components: {
     LiveHeader,
-    ScheduleTab
+    ScheduleTab,
+    CategoriesHeader
   },
   data () {
     return {
+      header: 'Live Page',
+      createCard: false,
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '.././images/volleyball1.jpg',
@@ -134,6 +195,12 @@ export default {
       this.url = 'https://images.unsplash.com/photo-1444491741275-3747c53c99b4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'
       this.url2 = 'https://images.unsplash.com/photo-1504150558240-0b4fd8946624?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80'
     }, 
+    showAddOptions() {
+      this.createCard = true
+    },
+    compressOptions() {
+      this.createCard = false
+    }
   }
 }
 </script>
