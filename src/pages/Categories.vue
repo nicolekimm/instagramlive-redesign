@@ -44,8 +44,24 @@
                   <q-img
                     class = "image1"
                     :src='item'
-                    style="height: 140px; flex: 1"
-                  />
+                    style="height: 140px; flex: 1">
+                        <div class="absolute-full text-subtitle1 flex flex-center my-text">
+                        <q-icon name="play_arrow" />
+                        3000k
+                        <p>@janedoe</p>
+                        <q-item-section avatar class="col-5">
+                        <q-avatar
+                          size="40px"
+                        >
+                          <q-img
+                            src="../images/janedoe.jpg"
+                          > 
+                          </q-img>
+                        </q-avatar>
+                      </q-item-section>
+                      </div>
+                  </q-img>
+
             </div>
           </div>
           <schedule-tab></schedule-tab>
@@ -187,5 +203,13 @@ export default {
       margin-right: -34px
     .image1 
       flex: 1
-    
+    .image1 .my-text 
+      visibility: hidden
+      opacity: 0
+      transition: .3s
+
+  .image1:hover .my-text
+    visibility: visible
+    opacity: 1
+    transition: .3s
 </style>
