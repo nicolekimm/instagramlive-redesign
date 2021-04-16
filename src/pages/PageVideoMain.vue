@@ -12,7 +12,7 @@
               <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showAddOptions">
                 add_circle
               </span>
-              <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showAddOptions">
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showOptions">
                 event
               </span>
               <span class="material-icons md-48" style="font-size: 30px; padding:2px">
@@ -158,58 +158,45 @@
         </q-card>
         <q-card class="my-card absolute-bottom" flat bordered ref="createCard" v-if="scheduleCard">
           <q-card-section>
-            <div class="text-h6" align="center" :click="comOptions">Create</div>
+            <div class="text-h6" align="center" :click="comOptions">Schedule Stream</div>
           </q-card-section>
           <q-separator />
           <q-card-actions>
             <q-btn flat round icon="eva-grid-outline" />
-            <q-btn flat no-caps style="font-size: 17px">
-              Post
-            </q-btn>
+            <q-btn flat no-caps style="font-size: 17px"></q-btn>
+              <q-input borderless v-model="text" label="Title"></q-input>
           </q-card-actions>
           <q-separator />
           <q-card-actions>
-            <q-btn flat round icon="restore" />
+            <q-btn flat round icon="today" />
             <q-btn flat no-caps style="font-size: 17px">
-              Story
             </q-btn>
+            <q-input border v-model="date" mask="####-##-##" :rules="['date']">
+            <template v-slot:append>
+              <q-icon name="event" class="cursor-pointer">
+                <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                  <q-date v-model="date"  ></q-date>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
           </q-card-actions>
           <q-separator />
           <q-card-actions>
             <q-btn flat round icon="stars" />
             <q-btn flat no-caps style="font-size: 17px">
-              Story Highlight
+              Pick Audience
             </q-btn>
           </q-card-actions>
           <q-separator />
           <q-card-actions>
-            <q-btn flat round icon="tv" />
-            <q-btn flat no-caps style="font-size: 17px">
-              IGTV Video
-            </q-btn>
-          </q-card-actions>
-          <q-separator />
-          <q-card-actions>
-            <q-btn flat round icon="play_circle_outline" />
-            <q-btn flat no-caps style="font-size: 17px">
-              Reel
-            </q-btn>
-          </q-card-actions>
-          <q-separator />
-          <q-card-actions>
-            <q-btn flat round icon="live_tv" />
-            <q-btn flat no-caps style="font-size: 17px" to="/story">
-              Live Video
-            </q-btn>
-          </q-card-actions>
-          <q-separator />
-          <q-card-actions>
-            <q-btn flat round icon="map" />
-            <q-btn flat no-caps style="font-size: 17px">
-              Guide
+            <q-btn flat round icon="" />
+            <q-btn color="secondary" no-caps style="font-size: 17px; width: 100%">
+              Schedule
             </q-btn>
           </q-card-actions>
         </q-card>
+          
   </q-page>
 </template>
 
@@ -229,6 +216,8 @@ export default {
       header: 'Live Page',
       createCard: false,
       scheduleCard: false,
+      date: '2021/01/01',
+      text: '',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '.././images/volleyball1.jpg',
