@@ -164,11 +164,11 @@
           <q-card-actions>
             <q-btn flat round icon="eva-grid-outline" />
             <q-btn flat no-caps style="font-size: 17px"></q-btn>
-              <q-input borderless v-model="text" label="Title"></q-input>
+              <q-input borderless v-model="text" label="Topic"></q-input>
           </q-card-actions>
           <q-separator />
           <q-card-actions>
-            <q-btn flat round icon="today" />
+            <q-btn flat round icon="schedule" />
             <q-btn flat no-caps style="font-size: 17px">
             </q-btn>
             <q-input border v-model="date" mask="####-##-##" :rules="['date']">
@@ -184,9 +184,19 @@
           <q-separator />
           <q-card-actions>
             <q-btn flat round icon="stars" />
-            <q-btn flat no-caps style="font-size: 17px">
+            <q-btn flat no-caps style="font-size: 17px; display: block">
               Pick Audience
             </q-btn>
+            <div class="first" style="display: block">
+            <q-btn flat no-caps style="font-size: 17px">
+              Everyone
+            </q-btn>
+            <q-toggle v-model="value1" @input="onClick"></q-toggle>
+            <q-btn flat no-caps style="font-size: 17px">
+              Friends
+            </q-btn>
+            <q-toggle v-model="value2" @input="onClick"></q-toggle>
+            </div>
           </q-card-actions>
           <q-separator />
           <q-card-actions>
@@ -217,6 +227,8 @@ export default {
       createCard: false,
       scheduleCard: false,
       date: '2021/01/01',
+      value1: true,
+      value2: false,
       text: '',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
@@ -252,7 +264,14 @@ export default {
     comOptions() {
       this.scheduleCard = false
       console.log("here")
-    }
+    },
+    onClick(val){
+      console.log(val)
+      this.value1= !this.value2
+      this.value2= !this.value1
+
+      console.log("HETHE")
+    },
   }
 }
 </script>
