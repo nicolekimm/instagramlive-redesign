@@ -12,7 +12,7 @@
               <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showAddOptions">
                 add_circle
               </span>
-              <span class="material-icons md-48" style="font-size: 25px; padding:2px" >
+              <span class="material-icons md-48" style="font-size: 25px; padding:2px" @click="showOptions">
                 event
               </span>
               <span class="material-icons md-48" style="font-size: 30px; padding:2px">
@@ -101,10 +101,11 @@
 
       </div>
     </q-item>
-    <schedule-tab></schedule-tab>
-            <q-card class="my-card absolute-bottom" flat bordered ref="createCard" v-if="createCard">
+    <q-menu>
+      <q-item-section>
+        <q-card class="my-card fixed-bottom" flat bordered ref="createCard" v-if="createCard" >
           <q-card-section>
-            <div class="text-h6" align="center" @click= "compressOptions">Create</div>
+            <div class="text-h6" align="center" @click="compressOptions">Create</div>
           </q-card-section>
           <q-separator />
           <q-card-actions>
@@ -155,8 +156,69 @@
               Guide
             </q-btn>
           </q-card-actions>
-
+          <q-separator />
         </q-card>
+      </q-item-section>
+    </q-menu>
+
+    <q-menu>
+      <q-item-section>
+        <q-card class="my-card fixed-bottom" flat bordered ref="createCard" v-if="scheduleCard">
+          <q-card-section>
+            <div class="text-h6" align="center" :click="comOptions">Schedule Stream</div>
+          </q-card-section>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="eva-grid-outline" />
+            <q-btn flat no-caps style="font-size: 17px"></q-btn>
+              <q-input borderless v-model="text" label="Topic"></q-input>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="schedule" />
+            <q-btn flat no-caps style="font-size: 17px">
+            </q-btn>
+            <q-input border v-model="date" mask="####-##-##" :rules="['date']">
+            <template v-slot:append>
+              <q-icon name="event" class="cursor-pointer">
+                <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                  <q-date v-model="date"  ></q-date>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="stars" />
+            <q-btn flat no-caps style="font-size: 17px; display: block">
+              Pick Audience
+            </q-btn>
+            <div class="first" style="display: block">
+            <q-btn flat no-caps style="font-size: 17px">
+              Everyone
+            </q-btn>
+            <q-toggle v-model="value1" @input="onClick"></q-toggle>
+            <q-btn flat no-caps style="font-size: 17px">
+              Friends
+            </q-btn>
+            <q-toggle v-model="value2" @input="onClick"></q-toggle>
+            </div>
+          </q-card-actions>
+          <q-separator />
+          <q-card-actions>
+            <q-btn flat round icon="" />
+            <q-btn color="secondary" no-caps style="font-size: 17px; width: 100%">
+              Schedule
+            </q-btn>
+          </q-card-actions>
+           <q-card-actions>
+            <q-btn flat round icon="" />
+          </q-card-actions>  
+        </q-card>
+      </q-item-section>
+        </q-menu>
+        <q-separator />        
   </q-page>
 </template>
 
@@ -175,6 +237,11 @@ export default {
     return {
       header: 'Live Page',
       createCard: false,
+      scheduleCard: false,
+      date: '2021/01/01',
+      value1: true,
+      value2: false,
+      text: '',
       url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80',
       url2: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
       url3: '.././images/volleyball1.jpg',
@@ -200,7 +267,23 @@ export default {
     },
     compressOptions() {
       this.createCard = false
-    }
+      console.log("here")
+
+    },
+    showOptions() {
+      this.scheduleCard = true
+    },
+    comOptions() {
+      this.scheduleCard = false
+      console.log("here")
+    },
+    onClick(val){
+      console.log(val)
+      this.value1= !this.value2
+      this.value2= !this.value1
+
+      console.log("HETHE")
+    },
   }
 }
 </script>

@@ -2,7 +2,6 @@
     <q-page class="constrain q-pa-md"> 
         <div class="camera-frame q-pa-md">
             <div class="row justify-between">
-                <q-btn flat round icon="comments" size="lg" @click= "showAddOptions"/>
                 <q-btn flat round icon="eva-close-circle-outline" size="lg" to="/" @click="turnOffCamera" />
             </div>
             <div class="img text-center">
@@ -49,80 +48,13 @@
             />
             <div class="text-center">
                 <q-btn 
-                    @click="captureVideo"
+                    to="/livestream"
                     round
                     color="grey-10"
                     icon="eva-camera" 
                     size="lg"
                 />
             </div>
-
-        <q-card class="my-card absolute-bottom" flat bordered ref="createCard" v-if="createCard">
-            <q-card-section>
-                <div class="text-h6" align="center" @click= "compressOptions">Chat</div>
-            </q-card-section>
-            <q-separator />
-            <div class="q-pa-md row justify-center">
-                <div style="width: 100%; max-width: 400px">
-                <q-chat-message
-                    name="@janedoe"
-                    avatar="../images/janedoe.jpg"
-                    :text="['Hey!']"
-                    stamp="7 minutes ago"
-                    sent
-                    bg-color="amber-7"
-                />
-                <q-chat-message
-                    name="@nadia"
-                    avatar="https://cdn.quasar.dev/img/avatar5.jpg"
-                    :text="[
-                    'How are you?',
-                    'I am soooo tired'
-                    ]"
-                    size="6"
-                    stamp="4 minutes ago"
-                    text-color="white"
-                    bg-color="primary"
-                />
-                <q-chat-message
-                    name="@janedoe"
-                    avatar="../images/janedoe.jpg"
-                    :text="['Good!']"
-                    stamp="3 minutes ago"
-                    sent
-                    bg-color="amber-7"
-                />
-                <q-chat-message
-                    name="@kate"
-                    :text="['Yay! Sooooo whats up?']"
-                    bg-color="primary"
-                    text-color="white"
-                >
-                    <template v-slot:avatar>
-                    <img
-                        class="q-message-avatar q-message-avatar--received"
-                        src="https://cdn.quasar.dev/img/avatar2.jpg"
-                    >
-                    </template>
-
-                    <q-spinner-dots size="2rem" />
-                </q-chat-message>
-                <q-input class="q-mt-lg" rounded outlined v-model="text" label="Type a message...">
-                    <template v-slot:append>
-                    <q-icon name="eva-message-circle-outline" color="orange" />
-                    </template>
-                </q-input>
-                </div>
-            </div>
-
-        </q-card>
-
-
-
-
-
-
-
         </div>   
 
     </q-page>
@@ -137,6 +69,7 @@ export default {
             play: true,
             videoCaptured: false,
             createCard: false,
+            text: ''
         };
     },
     methods: {
