@@ -45,13 +45,19 @@
                     class = "image1"
                     :src='item'
                     style="height: 140px; flex: 1">
-                        <div class="absolute-full text-subtitle1 flex flex-center my-text">
+                      <div class="absolute-bottom-right text-subtitle2" 
+                      style="background: none; text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;">
                         <q-icon name="play_arrow" />
-                        3000k
-                        <p>@janedoe</p>
+                        {{idx*50}}k
+                      </div>
+                      <div class="absolute-full text-subtitle1 flex flex-center my-text">
+                        <q-icon name="play_arrow" />
+                        {{idx*50}}k
+                        <p style="display: flex">@janedoe</p>
                         <q-item-section avatar class="col-5">
                         <q-avatar
                           size="40px"
+                          style="margin-left: 20px; margin-top: -15px"
                         >
                           <q-img
                             src="../images/janedoe.jpg"
@@ -212,4 +218,7 @@ export default {
     visibility: visible
     opacity: 1
     transition: .3s
+
+  .absolute-bottom-right.text-subtitle2
+    padding: !important -10px 
 </style>
