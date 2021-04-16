@@ -165,7 +165,7 @@
       <q-item-section>
         <q-card class="my-card fixed-bottom" flat bordered ref="createCard" v-if="scheduleCard">
           <q-card-section>
-            <div class="text-h6" align="center" :click="comOptions">Schedule Stream</div>
+            <div class="text-h6" align="center" @click="comOptions">Schedule Stream</div>
           </q-card-section>
           <q-separator />
           <q-card-actions>
@@ -178,11 +178,11 @@
             <q-btn flat round icon="schedule" />
             <q-btn flat no-caps style="font-size: 17px">
             </q-btn>
-            <q-input border v-model="date" mask="####-##-##" :rules="['date']">
+            <q-input border v-model="date" mask="####-##-##">
             <template v-slot:append>
               <q-icon name="event" class="cursor-pointer">
                 <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                  <q-date v-model="date"  ></q-date>
+                  <q-date v-model="date" minimal></q-date>
                 </q-popup-proxy>
               </q-icon>
             </template>
@@ -208,7 +208,7 @@
           <q-separator />
           <q-card-actions>
             <q-btn flat round icon="" />
-            <q-btn color="secondary" no-caps style="font-size: 17px; width: 100%">
+            <q-btn color="secondary" no-caps style="font-size: 17px; width: 100%" @click="comOptions">
               Schedule
             </q-btn>
           </q-card-actions>
