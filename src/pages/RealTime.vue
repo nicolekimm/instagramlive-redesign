@@ -58,9 +58,10 @@
                 />
             </div>
 
-        <q-card class="my-card absolute-bottom" flat bordered ref="createCard" v-if="createCard">
+        <q-card class="my-card1 absolute-bottom" flat bordered ref="createCard" v-if="createCard">
             <q-card-section>
-                <div class="text-h6" align="center" @click= "compressOptions">Chat</div>
+                <div class="text-h6" align="center" @click= "compressOptions">
+                    Chat</div>
             </q-card-section>
             <q-separator />
             <div class="q-pa-md row justify-center">
@@ -153,10 +154,10 @@ export default {
             tracks.forEach(track=>track.stop());
         },
         showAddOptions() {
-        this.createCard = true
+            this.createCard = true
         },
         compressOptions() {
-        this.createCard = false
+            this.createCard = false
         }
     },
     mounted() {
@@ -175,4 +176,12 @@ export default {
     .video 
         margin-top: 100px
         margin-bottom: 20px
+    .my-card1
+    .absolute-bottom
+    .q-card
+    .q-card--bordered
+    .q-card--flat
+    .no-shadow
+        opacity: 0.85
+
 </style>

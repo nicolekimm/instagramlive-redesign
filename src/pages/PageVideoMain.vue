@@ -105,7 +105,7 @@
       <q-item-section>
         <q-card class="my-card fixed-bottom" flat bordered ref="createCard" v-if="createCard" >
           <q-card-section>
-            <div class="text-h6" align="center" @click="compressOptions">Create</div>
+            <div class="text-h6" align="center" :click="compressOptions">Create</div>
           </q-card-section>
           <q-separator />
           <q-card-actions>
