@@ -1,9 +1,8 @@
 <template>
     <q-page class="constrain q-pa-md"> 
-        <div class="camera-frame q-pa-md">
+        <div class="camera-frame q-pa-md" >
             <div class="row justify-between">
                 <q-btn flat round icon="comments" size="lg" @click= "showAddOptions"/>
-                <q-btn flat round icon="eva-close-circle-outline" size="lg" to="/" @click="turnOffCamera" />
             </div>
             <div class="img text-center">
                 <q-avatar
@@ -33,8 +32,9 @@
 
             </div>
             <div class="text text-center">
-                20 followers are active now
+                3k people are watching
             </div>
+            
             <video
                 v-show="!videoCaptured"
                 ref= "video"
@@ -46,13 +46,14 @@
                 v-show="videoCaptured"
                 ref="canvas"
                 class="video full-width"
+
             />
             <div class="text-center">
                 <q-btn 
-                    to="/livestream"
+                    @click="captureVideo"
                     round
-                    color="grey-10"
-                    icon="eva-camera" 
+                    color="red"
+                    icon="radio_button_checked"
                     size="lg"
                 />
             </div>
@@ -125,7 +126,7 @@
 <script>
 require('md-gum-polyfill');
 export default {
-    name: 'Story',
+    name: 'RealTime',
     data() {
         return {
             play: true,
@@ -143,13 +144,8 @@ export default {
             })
         },
         captureVideo() {
-            let video = this.$refs.video;
-            let canvas = this.$refs.canvas;
-            canvas.width = video.getBoundingClientRect().width;
-            canvas.height = video.getBoundingClientRect().height;
-            let context = canvas.getContext('2d');
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            this.videoCaptured = true;
+            alert("Live stream ended! Uploading to your profile...")
+            window.location.href = '/';
         },
         turnOffCamera() {
             let mediaStream = this.$refs.video.srcObject;

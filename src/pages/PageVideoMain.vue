@@ -101,7 +101,9 @@
 
       </div>
     </q-item>
-        <q-card class="my-card absolute-bottom" flat bordered ref="createCard" v-if="createCard">
+    <q-menu>
+      <q-item-section>
+        <q-card class="my-card fixed-bottom" flat bordered ref="createCard" v-if="createCard" >
           <q-card-section>
             <div class="text-h6" align="center" @click="compressOptions">Create</div>
           </q-card-section>
@@ -154,9 +156,14 @@
               Guide
             </q-btn>
           </q-card-actions>
-
+          <q-separator />
         </q-card>
-        <q-card class="my-card absolute-bottom" flat bordered ref="createCard" v-if="scheduleCard">
+      </q-item-section>
+    </q-menu>
+
+    <q-menu>
+      <q-item-section>
+        <q-card class="my-card fixed-bottom" flat bordered ref="createCard" v-if="scheduleCard">
           <q-card-section>
             <div class="text-h6" align="center" :click="comOptions">Schedule Stream</div>
           </q-card-section>
@@ -205,8 +212,13 @@
               Schedule
             </q-btn>
           </q-card-actions>
+           <q-card-actions>
+            <q-btn flat round icon="" />
+          </q-card-actions>  
         </q-card>
-          
+      </q-item-section>
+        </q-menu>
+        <q-separator />        
   </q-page>
 </template>
 
